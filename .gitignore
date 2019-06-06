@@ -198,3 +198,6 @@ fabric.properties
 # Editor-based Rest Client
 .idea/httpRequests
 
+# Tests generated
+Test-ScreenShots/
+TestReport/
