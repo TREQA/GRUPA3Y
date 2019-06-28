@@ -3,7 +3,7 @@ package com.selenium.template.tests;
 import com.selenium.template.extent_report.ExtentTestListener;
 import com.selenium.template.page_objects.google_example.GoogleSearchPage;
 import com.selenium.template.page_objects.selenium_easy.SeleniumEasyPage;
-import com.selenium.template.page_objects.selenium_easy.SeleniumEasyTwoInput;
+import com.selenium.template.page_objects.selenium_easy.TwoInputsPage;
 import com.selenium.template.utils.SeleniumWrapper;
 import com.selenium.template.utils.TestData;
 import org.openqa.selenium.WebDriver;
@@ -73,7 +73,7 @@ public class TestTheTest extends ExtentTestListener {
     public void Test_01_Verify_2_Inputs() throws Exception {
 
         WebDriver driver = getDriver();;
-        SeleniumEasyTwoInput seleniumEasyTwoInput = new SeleniumEasyTwoInput(driver);
+        TwoInputsPage twoInputsPage = new TwoInputsPage(driver);
 
         SeleniumWrapper.openIfLinkExists(driver, TestData.SELENIUM_EASY_INPUTS_URL);
         driver.manage().window().maximize();
@@ -85,11 +85,11 @@ public class TestTheTest extends ExtentTestListener {
         String stringSecondSum = String.valueOf(secondNumber);
 
 
-        seleniumEasyTwoInput.setFirstSum(stringFirstSum);
+        twoInputsPage.setFirstSum(stringFirstSum);
 
-        seleniumEasyTwoInput.setSecondSum(stringSecondSum);
+        twoInputsPage.setSecondSum(stringSecondSum);
 
-        seleniumEasyTwoInput.setClickToGetTotal();
+        twoInputsPage.setClickToGetTotal();
 
         //Convert strings to integer and then assert the result
 

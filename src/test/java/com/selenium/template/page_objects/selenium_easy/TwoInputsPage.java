@@ -8,8 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-public class SeleniumEasyTwoInput extends PageBase {
-    public SeleniumEasyTwoInput(WebDriver driver){
+public class TwoInputsPage extends PageBase {
+    public TwoInputsPage(WebDriver driver){
         super(driver);
     }
 

@@ -8,8 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-public class SeleniumMultipleCheckbox extends PageBase {
-    public SeleniumMultipleCheckbox(WebDriver driver) {super(driver);}
+public class CheckboxMultiple extends PageBase {
+    public CheckboxMultiple(WebDriver driver) {super(driver);}
 
     @FindBy (id = "check1")
     WebElement checkAllButton;

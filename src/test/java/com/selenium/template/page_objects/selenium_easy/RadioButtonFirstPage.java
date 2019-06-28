@@ -6,8 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SeleniumEasyFirstRadioButton extends PageBase {
-    public SeleniumEasyFirstRadioButton(WebDriver driver){super(driver);}
+public class RadioButtonFirstPage extends PageBase {
+    public RadioButtonFirstPage(WebDriver driver){super(driver);}
 
     @FindBy (css = "#easycont > div > div.col-md-6.text-left > div:nth-child(4) > div.panel-body > label:nth-child(2)")
     WebElement radioboxMaleButton;

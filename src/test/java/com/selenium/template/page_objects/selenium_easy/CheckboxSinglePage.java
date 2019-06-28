@@ -7,8 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-public class SeleniumSingleCheckbox extends PageBase {
-    public SeleniumSingleCheckbox(WebDriver driver) {super(driver);}
+public class CheckboxSinglePage extends PageBase {
+    public CheckboxSinglePage(WebDriver driver) {super(driver);}
 
     @FindBy (id = "isAgeSelected")
     WebElement clickCheckbox;

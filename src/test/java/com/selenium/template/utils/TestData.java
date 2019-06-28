@@ -16,4 +16,5 @@ public class TestData {
     public static final String SELENIUM_EASY_CALENDAR_URL = "https://www.seleniumeasy.com/test/bootstrap-date-picker-demo.html";
     public static final String SELENIUM_EASY_JQUERY_CALENDAR_URL = "https://www.seleniumeasy.com/test/jquery-date-picker-demo.html";
     public static final String SELENIUM_EASY_TABEL_PAGINATION_URL = "https://www.seleniumeasy.com/test/table-pagination-demo.html";
+    public static final String SELENIUM_EASY_PROGRESS_BAR_BOOSTRAP_URL = "https://www.seleniumeasy.com/test/bootstrap-download-progress-demo.html";
 }
