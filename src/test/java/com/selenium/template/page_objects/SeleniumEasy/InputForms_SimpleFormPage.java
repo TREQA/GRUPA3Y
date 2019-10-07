@@ -5,12 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-/**
- * Created by azaharia on 04.09.2018.
- */
-public class SimpleFormPage extends PageBase {
+public class InputForms_SimpleFormPage extends PageBase {
 
-    public SimpleFormPage (WebDriver driver){
+    public InputForms_SimpleFormPage(WebDriver driver){
         super(driver);
     }
 

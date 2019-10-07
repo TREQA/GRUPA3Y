@@ -8,6 +8,12 @@ public class TestData {
 
 
     public static final String SELENIUM_INPUTFORMS_SIMPLEFORMDEMO = "https://www.seleniumeasy.com/test/basic-first-form-demo.html";
-
+    public static final String SELENIUM_INPUTFORMS_CHECKBOX = "https://www.seleniumeasy.com/test/basic-checkbox-demo.html";
+    public static final String SELENIUM_INPUTFORMS_RADIOBUTTONS = "https://www.seleniumeasy.com/test/basic-radiobutton-demo.html";
+    public static final String SELENIUM_INPUTFORMS_DROPDOWNLIST = "https://www.seleniumeasy.com/test/basic-select-dropdown-demo.html";
+    public static final String SELENIUM_INPUTFORMS_INPUTFORMSUBMIT = "https://www.seleniumeasy.com/test/input-form-demo.html";
+    public static final String SELENIUM_INPUTFORMS_AJAXFORMSUBMIT = "https://www.seleniumeasy.com/test/ajax-form-submit-demo.html";
+    public static final String SELENIUM_INPUTFORMS_JQUERYSELECTDD = "https://www.seleniumeasy.com/test/jquery-dropdown-search-demo.html";
+    public static final String SELENIUM_PROGRESSBAR_BOOTSTRAP = "https://www.seleniumeasy.com/test/bootstrap-download-progress-demo.html";
 
 }
