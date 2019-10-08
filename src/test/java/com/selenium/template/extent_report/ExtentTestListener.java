@@ -76,9 +76,10 @@ public class ExtentTestListener extends DriverBase implements ITestListener {
         RemoteWebDriver driver = null;
 
         try {
+
              driver = getDriver();
         } catch (Exception e) {
-            Assert.fail("Malformed URL expcetion  : " + e.getMessage());
+            Assert.fail("Malformed URL exception  : " + e.getMessage());
         }
 
         String screenShot = CaptureScreenShot.captureScreen(driver, CaptureScreenShot.generateFileName(result));

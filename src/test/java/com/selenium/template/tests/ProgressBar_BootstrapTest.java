@@ -1,7 +1,6 @@
 package com.selenium.template.tests;
 
 import com.selenium.template.extent_report.ExtentTestListener;
-import com.selenium.template.page_objects.SeleniumEasy.InputForms_SimpleFormPage;
 import com.selenium.template.page_objects.SeleniumEasy.ProgressBar_BootstrapPage;
 import com.selenium.template.utils.SeleniumWrapper;
 import com.selenium.template.utils.TestData;
@@ -24,6 +23,7 @@ public class ProgressBar_BootstrapTest extends ExtentTestListener {
 
         progressBar_BootstrapPage.clickBootstrapDownloadButton();
         progressBar_BootstrapPage.checkCompletionPercentage();
-
-        Assert.assertTrue(progressBar_BootstrapPage.checkCompletionPercentage());
-        testPass("Assert message was received: " + progressBar_BootstrapPage.checkCompletionPercentage());   }}
+        boolean hundred = progressBar_BootstrapPage.checkPercentText();
+        System.out.println("Is the variable true?: "+hundred);
+        Assert.assertTrue(hundred);
+        testPass("Assert message was received: "+hundred); }}
