@@ -1,13 +1,13 @@
-package com.selenium.template.page_objects.SeleniumEasy;
+package com.selenium.template.page_objects.SeleniumEasy.InputForms;
 import com.selenium.template.page_objects.PageBase;
 import com.selenium.template.utils.SeleniumWrapper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class InputForms_SimpleFormPage extends PageBase {
+public class SimpleFormPage extends PageBase {
 
-    public InputForms_SimpleFormPage(WebDriver driver){
+    public SimpleFormPage(WebDriver driver){
         super(driver);
     }
 

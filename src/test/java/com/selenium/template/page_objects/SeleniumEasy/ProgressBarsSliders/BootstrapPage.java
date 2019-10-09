@@ -1,4 +1,4 @@
-package com.selenium.template.page_objects.SeleniumEasy;
+package com.selenium.template.page_objects.SeleniumEasy.ProgressBarsSliders;
 
 import com.selenium.template.page_objects.PageBase;
 import com.selenium.template.utils.SeleniumWrapper;
@@ -7,9 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ProgressBar_BootstrapPage extends PageBase {
+public class BootstrapPage extends PageBase {
 
-    public ProgressBar_BootstrapPage(WebDriver driver) {
+    public BootstrapPage(WebDriver driver) {
         super(driver);
     }
 

@@ -1,4 +1,4 @@
-package com.selenium.template.tests;
+package com.selenium.template.tests.InputForms;
 
 import com.selenium.template.extent_report.ExtentTestListener;
 import com.selenium.template.page_objects.SeleniumEasy.InputForms.SimpleFormPage;
@@ -9,7 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class InputForms_SimpleFormTest extends ExtentTestListener {
+public class SimpleFormTest extends ExtentTestListener {
 
 
     @Test(groups = "Test", description = "Input Forms > Single Input Field")
