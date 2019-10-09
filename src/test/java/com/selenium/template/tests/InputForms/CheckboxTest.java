@@ -30,7 +30,7 @@ public class CheckboxTest extends ExtentTestListener {
     @Test(groups = "Test", description = "Input Forms > Check All")
     public void Test_02_Input_Forms_Checkbox_Demo() throws Exception {
 
-        WebDriver driver = getDriver();;
+        WebDriver driver = getDriver();
         CheckboxPage CheckboxPage = new CheckboxPage(driver);
 
         SeleniumWrapper.openIfLinkExists(driver, TestData.SELENIUM_INPUTFORMS_CHECKBOX);
