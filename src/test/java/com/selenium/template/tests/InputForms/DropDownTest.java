@@ -9,10 +9,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
+
 public class DropDownTest extends ExtentTestListener {
 
 
-    @Test(groups = "Test", description = "Input Forms > First Dropdown")
+    @Test(groups = "Test", description = "DropDown List > First Dropdown")
     public void Test_01_Input_Forms_DropDown() throws Exception {
 
         WebDriver driver = getDriver();
@@ -28,7 +29,7 @@ public class DropDownTest extends ExtentTestListener {
         Assert.assertTrue(testcheck);
         testPass("Assert message was received: " + (testcheck));}
 
-    @Test(groups = "Test", description = "Input Forms > First Dropdown")
+    @Test(groups = "Test", description = "DropDown List > Second Dropdown")
     public void Test_01_Input_Forms_DropDown2() throws Exception {
 
         WebDriver driver = getDriver();
@@ -37,5 +38,9 @@ public class DropDownTest extends ExtentTestListener {
         SeleniumWrapper.openIfLinkExists(driver, TestData.SELENIUM_INPUTFORMS_DROPDOWNLIST);
         driver.manage().window().maximize();
 
-        String[] states = {"Texas", "New York", "Washington"};
-        DropdownPage.stateSelector(states);}}
+        String[] states = {"Texas", "New York", "California", "Florida"};
+               DropdownPage.stateSelector(states);
+    boolean checkResult = DropdownPage.buttonClickChecks(states);
+        Assert.assertTrue(checkResult);
+        testPass("Assert message was received: " + (checkResult));}
+    }

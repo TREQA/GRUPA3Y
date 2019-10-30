@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class RadioButtonsTest extends ExtentTestListener {
 
 
-    @Test(groups = "Test", description = "Input Forms > First Checkbox")
+    @Test(groups = "Test", description = "Radio Buttons > Radio Button")
     public void Test_01_Input_Radio_Buttons() throws Exception {
 
         WebDriver driver = getDriver();
@@ -29,7 +29,7 @@ public class RadioButtonsTest extends ExtentTestListener {
         testPass("Assert message was received: " + check1);
     }
 
-    @Test(groups = "Test", description = "Input Forms > First Checkbox")
+    @Test(groups = "Test", description = "Radio Buttons > Group Radio Buttons")
     public void Test_02_Input_Forms_Radio_Buttons() throws Exception {
 
         WebDriver driver = getDriver();

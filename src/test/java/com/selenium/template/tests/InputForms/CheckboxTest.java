@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class CheckboxTest extends ExtentTestListener {
 
 
-    @Test(groups = "Test", description = "Input Forms > First Checkbox")
+    @Test(groups = "Test", description = "Checkbox Demo > First Checkbox")
     public void Test_01_Input_Forms_Checkbox() throws Exception {
 
         WebDriver driver = getDriver();
@@ -27,7 +27,7 @@ public class CheckboxTest extends ExtentTestListener {
         testPass("Assert message was received: " + message); }
 
 
-    @Test(groups = "Test", description = "Input Forms > Check All")
+    @Test(groups = "Test", description = "Checkbox Demo > Check All")
     public void Test_02_Input_Forms_Checkbox() throws Exception {
 
         WebDriver driver = getDriver();

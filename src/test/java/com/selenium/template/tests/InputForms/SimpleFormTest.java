@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class SimpleFormTest extends ExtentTestListener {
 
 
-    @Test(groups = "Test", description = "Input Forms > Single Input Field")
+    @Test(groups = "Test", description = "Simple Form > Single Input Field")
     public void Test_01_Input_Forms_First_Input() throws Exception {
 
         WebDriver driver = getDriver();
@@ -28,7 +28,7 @@ public class SimpleFormTest extends ExtentTestListener {
         Assert.assertEquals(x, "Hello-message!");
         testPass("Assert message was received: " + x); }
 
-    @Test(groups = "Test", description = "Input Forms > Two Input Fields")
+    @Test(groups = "Test", description = "Simple Form > Two Input Fields")
     public void Test_02_Input_Forms_First_Input() throws Exception {
 
         WebDriver driver = getDriver();
