@@ -20,7 +20,7 @@ public class DropdownPage extends PageBase {
     private WebElement DropDown;
 
     private WebElement selectDropDay(String value) {
-        return driver.findElement(By.xpath("//button[@type='button'][@value='" + value + "']"));
+        return driver.findElement(By.xpath("//option[contains(text(),'"+value+"')]"));
     }
 
     @FindBy(className = "selected-value")
@@ -30,6 +30,9 @@ public class DropdownPage extends PageBase {
 
     @FindBy(className = "getall-selected")
     private WebElement stateSelectionCheck;
+
+    private WebElement selectStates(String state){
+        return driver.findElement(By.xpath("//select[@name='States']/option[@value='"+state+"']"));}
 
     @FindBy(xpath = "//button[@type='button'][@value='Print First']")
     private WebElement buttonFirst;
@@ -47,6 +50,24 @@ public class DropdownPage extends PageBase {
         selectDropDay(day).click();
     }
 
+    public boolean checkMessage1 (String message)
+    { return checkDay.getText().contains(message);}
 
-    Actions action = new Actions(driver);
+    // ---------------------------------------------------------------Multiple Select Methods
+
+    public void stateSelector (String[] states){
+        Actions action = new Actions(driver);
         action.keyDown(Keys.CONTROL).build().perform();
+        for (String t: states){
+            selectStates(t).click();
+        }
+        action.keyUp(Keys.CONTROL).build().perform();
+    }
+
+     public void checkStates (String[] states) {
+        System.out.println("Hi");
+    }
+}
+
+
+
