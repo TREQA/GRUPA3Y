@@ -13,7 +13,7 @@ public class RadioButtonsTest extends ExtentTestListener {
 
 
     @Test(groups = "Test", description = "Input Forms > First Checkbox")
-    public void Test_01_Input_Radio_Buttons_Demo() throws Exception {
+    public void Test_01_Input_Radio_Buttons() throws Exception {
 
         WebDriver driver = getDriver();
         RadioButtonsPage RadioButtonsPage = new RadioButtonsPage(driver);
@@ -22,15 +22,15 @@ public class RadioButtonsTest extends ExtentTestListener {
         driver.manage().window().maximize();
 //----------------SPECIFY DESIRED OPTION ("Male" or "Female")
         String gender1 = "Female";
-        RadioButtonsPage.checkFirstBox(string);
+        RadioButtonsPage.checkFirstBox(gender1);
         RadioButtonsPage.clickGetCheckedValuesButton();
-        boolean check1 = RadioButtonsPage.checkFirstMessage(string);
+        boolean check1 = RadioButtonsPage.checkFirstMessage(gender1);
         Assert.assertTrue(check1);
         testPass("Assert message was received: " + check1);
     }
 
     @Test(groups = "Test", description = "Input Forms > First Checkbox")
-    public void Test_02_Input_Forms_Radio_Buttons_Demo() throws Exception {
+    public void Test_02_Input_Forms_Radio_Buttons() throws Exception {
 
         WebDriver driver = getDriver();
         RadioButtonsPage RadioButtonsPage = new RadioButtonsPage(driver);
@@ -40,13 +40,14 @@ public class RadioButtonsTest extends ExtentTestListener {
 //----------------SPECIFY DESIRED GENDER ("Male" or "Female")
         String gender2 = "Male";
         RadioButtonsPage.checkGenderBox(gender2);
-//----------------SPECIFY DESIRED AGE GROUP ("0 - 5", "5 - 10" or "10 - 15")
-        String age = "0 - 5";
-        RadioButtonsPage.checkGenderBox(gender2);
-        RadioButtonsPage.clickGetCheckedValuesButton();
-        boolean check1 = RadioButtonsPage.checkFirstMessage(string);
-        Assert.assertTrue(check1);
-        testPass("Assert message was received: " + check1);
+//----------------SPECIFY DESIRED AGE GROUP ("0 - 5", "5 - 15" or "15 - 50")
+        String age = "5 - 15";
+        RadioButtonsPage.checkAgeBox(age);
+        RadioButtonsPage.clickGetValuesButton();
+        boolean check1 = RadioButtonsPage.checkSecondMessage(age);
+        boolean check2 = RadioButtonsPage.checkSecondMessage(gender2);
+        Assert.assertTrue(check1 && check2);
+        testPass("Assert message was received: " + (check1 && check2));
     }
 
 

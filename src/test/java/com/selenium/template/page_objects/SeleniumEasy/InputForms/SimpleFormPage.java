@@ -11,7 +11,7 @@ public class SimpleFormPage extends PageBase {
         super(driver);
     }
 
-    // ------------------------------------------------------- Single Input Field
+    // ------------------------------------------------------- Single Input Field Elements
 
     @FindBy(xpath = "//DIV[@class='col-md-6 text-left']//INPUT[@id='user-message']")
     private WebElement SimpleFormInputMessage;
@@ -21,25 +21,23 @@ public class SimpleFormPage extends PageBase {
 
     @FindBy(xpath = "//DIV[@class='col-md-6 text-left']//SPAN[@id='display']")
     private WebElement SimpleFormCheckMessage;
-    //----------------------------------------------------------------------------- Two Input Fields
-    @FindBy(xpath = "//DIV[@class='col-md-6 text-left']//INPUT[@id='sum1']")
+    //----------------------------------------------------------------------------- Two Input Fields Elements
+    @FindBy(id = "sum1")
     private WebElement SimpleFormEnterA;
 
-    @FindBy(xpath = "//DIV[@class='col-md-6 text-left']//INPUT[@id='sum2']")
+    @FindBy(id = "sum2")
     private WebElement SimpleFormEnterB;
 
     @FindBy(xpath = "//DIV[@class='col-md-6 text-left']//BUTTON[@type='button'][text()='Get Total']")
     private WebElement SimpleFormGetTotalBUTTON;
 
-    @FindBy(xpath = "//DIV[@class='col-md-6 text-left']//SPAN[@id='displayvalue']")
+    @FindBy(id = "displayvalue")
     private WebElement SimpleFormCheckTotal;
 
-    // ------------------------------------------------------- Methods
+    // ------------------------------------------------------- Test 1 Methods
 
-    // ---- setters
-
-    public void setSimpleFormInputMessage(String textToBeSearched){
-        SeleniumWrapper.sendKeys(SimpleFormInputMessage, textToBeSearched, "Simple Form Message");
+    public void setSimpleFormInputMessage(String message){
+        SimpleFormInputMessage.sendKeys(message);
     }
     public void clickSimpleFormShowMessageBUTTON(){
         SeleniumWrapper.clickElement(driver, SimpleFormShowMessageBUTTON, "Click Show Message Button");
@@ -48,4 +46,21 @@ public class SimpleFormPage extends PageBase {
         return SimpleFormCheckMessage.getText();
     }
 
+// ------------------------------------------------------------------------------ Test 2 Methods
+
+    public void setEnterA(int inputNumber1){
+        SimpleFormEnterA.sendKeys(Integer.toString(inputNumber1));
+    }
+
+    public void setEnterB(int inputNumber2){
+        SimpleFormEnterB.sendKeys(Integer.toString(inputNumber2));
+    }
+
+    public void clickGetTotal()
+      { SimpleFormGetTotalBUTTON.click(); }
+
+    public int checkSumTotal(){
+        return Integer.valueOf(SimpleFormCheckTotal.getText());
+    }
 }
+

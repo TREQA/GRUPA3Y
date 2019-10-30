@@ -13,7 +13,7 @@ public class CheckboxTest extends ExtentTestListener {
 
 
     @Test(groups = "Test", description = "Input Forms > First Checkbox")
-    public void Test_01_Input_Forms_Checkbox_Demo() throws Exception {
+    public void Test_01_Input_Forms_Checkbox() throws Exception {
 
         WebDriver driver = getDriver();
         CheckboxPage CheckboxPage = new CheckboxPage(driver);
@@ -28,7 +28,7 @@ public class CheckboxTest extends ExtentTestListener {
 
 
     @Test(groups = "Test", description = "Input Forms > Check All")
-    public void Test_02_Input_Forms_Checkbox_Demo() throws Exception {
+    public void Test_02_Input_Forms_Checkbox() throws Exception {
 
         WebDriver driver = getDriver();
         CheckboxPage CheckboxPage = new CheckboxPage(driver);

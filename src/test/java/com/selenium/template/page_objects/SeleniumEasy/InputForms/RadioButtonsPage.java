@@ -1,6 +1,5 @@
 package com.selenium.template.page_objects.SeleniumEasy.InputForms;
 import com.selenium.template.page_objects.PageBase;
-import com.selenium.template.utils.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -43,7 +42,7 @@ public class RadioButtonsPage extends PageBase {
         return driver.findElement(By.xpath("//input[@name='ageGroup'][@value='" + value + "']"));
     }
 
-    @FindBy(className = "button.btn.btn-default")
+    @FindBy(css = "[onclick=\"getValues();\"]")
     private WebElement GetValuesButton;
 
     @FindBy(className = "groupradiobutton")
@@ -54,13 +53,13 @@ public class RadioButtonsPage extends PageBase {
     public void checkGenderBox(String string) {
         GenderOption(string).click();
     }
-    public void checkAgeBox(String string) {
-        AgeGroupOption(string).click();
+    public void checkAgeBox(String age) {
+        AgeGroupOption(age).click();
     }
     public void clickGetValuesButton(){
         GetValuesButton.click();
     }
-    public boolean checkSecondMessage(String string) {
-        return ValuesMessage.getText().contains(string);
+    public boolean checkSecondMessage(String line) {
+        return ValuesMessage.getText().contains(line);
     }}
 

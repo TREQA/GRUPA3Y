@@ -13,9 +13,9 @@ public class SimpleFormTest extends ExtentTestListener {
 
 
     @Test(groups = "Test", description = "Input Forms > Single Input Field")
-    public void Test_01_Input_Forms_First_Input_Demo() throws Exception {
+    public void Test_01_Input_Forms_First_Input() throws Exception {
 
-        WebDriver driver = getDriver();;
+        WebDriver driver = getDriver();
         SimpleFormPage inputFormsSimpleFormPage = new SimpleFormPage(driver);
 
         SeleniumWrapper.openIfLinkExists(driver, TestData.SELENIUM_INPUTFORMS_SIMPLEFORMDEMO);
@@ -28,20 +28,21 @@ public class SimpleFormTest extends ExtentTestListener {
         Assert.assertEquals(x, "Hello-message!");
         testPass("Assert message was received: " + x); }
 
-    @Test(groups = "Test", description = "Input Forms > Two Input Fields TODOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
-    public void Test_02_Input_Forms_First_Input_Demo() throws Exception {
+    @Test(groups = "Test", description = "Input Forms > Two Input Fields")
+    public void Test_02_Input_Forms_First_Input() throws Exception {
 
-        WebDriver driver = getDriver();;
+        WebDriver driver = getDriver();
         SimpleFormPage inputFieldsSimpleFormPage = new SimpleFormPage(driver);
 
         SeleniumWrapper.openIfLinkExists(driver, TestData.SELENIUM_INPUTFORMS_SIMPLEFORMDEMO);
         driver.manage().window().maximize();
-
-        inputFieldsSimpleFormPage.setSimpleFormInputMessage("Hello-message!");
-        inputFieldsSimpleFormPage.clickSimpleFormShowMessageBUTTON();
-
-        String x = inputFieldsSimpleFormPage.checkFormMessage();
-        Assert.assertEquals(x, "Hello-message!");
+        int firstno = 5;
+        int secondno = 3;
+        inputFieldsSimpleFormPage.setEnterA(firstno);
+        inputFieldsSimpleFormPage.setEnterB(secondno);
+        inputFieldsSimpleFormPage.clickGetTotal();
+        int x = inputFieldsSimpleFormPage.checkSumTotal();
+        Assert.assertEquals(x, firstno+secondno);
         testPass("Assert message was received: " + x);   }
 
 }
