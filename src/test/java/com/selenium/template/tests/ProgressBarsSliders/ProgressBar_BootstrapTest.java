@@ -1,4 +1,4 @@
-package com.selenium.template.tests;
+package com.selenium.template.tests.ProgressBarsSliders;
 
 import com.selenium.template.extent_report.ExtentTestListener;
 import com.selenium.template.page_objects.SeleniumEasy.ProgressBarsSliders.BootstrapPage;

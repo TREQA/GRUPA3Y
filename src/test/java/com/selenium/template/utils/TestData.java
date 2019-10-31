@@ -3,7 +3,6 @@ package com.selenium.template.utils;
 public class TestData {
 
 
-
     public static final int SHORT_WAIT = 5;
 
 
@@ -15,5 +14,5 @@ public class TestData {
     public static final String SELENIUM_INPUTFORMS_AJAXFORMSUBMIT = "https://www.seleniumeasy.com/test/ajax-form-submit-demo.html";
     public static final String SELENIUM_INPUTFORMS_JQUERYSELECTDD = "https://www.seleniumeasy.com/test/jquery-dropdown-search-demo.html";
     public static final String SELENIUM_PROGRESSBAR_BOOTSTRAP = "https://www.seleniumeasy.com/test/bootstrap-download-progress-demo.html";
-
+    public static final String SELENIUM_TABLE_TABLEDATASEARCH = "https://www.seleniumeasy.com/test/table-search-filter-demo.html";
 }
