@@ -48,7 +48,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Jan 16, 2020 04:26:52 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Jan 16, 2020 04:30:16 PM</span>
 				</a>
 			</li>
 			<li>
@@ -136,14 +136,14 @@
 				<li class='test displayed active  fail' status='fail' bdd='false' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>Test_01_Table_Table1</span>
-						<span class='test-time'>Jan 16, 2020 04:26:52 PM</span>
+						<span class='test-time'>Jan 16, 2020 04:30:17 PM</span>
 						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Jan 16, 2020 04:26:52 PM</span>
-	<span class='label end-time'>Jan 16, 2020 04:27:02 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 9s+440ms</span>
+	<span class='label start-time'>Jan 16, 2020 04:30:17 PM</span>
+	<span class='label end-time'>Jan 16, 2020 04:30:29 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 12s+550ms</span>
 </div>
 	<div class='test-desc'>TableDataSearch > Table 1 </div>
 	<div class='test-attributes'>
@@ -163,28 +163,32 @@
 			<tbody>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>4:26:52 PM</td>
+					<td class='timestamp'>4:30:17 PM</td>
 					<td class='step-details'>============================================ Test_01_Table_Table1</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>4:26:52 PM</td>
+					<td class='timestamp'>4:30:17 PM</td>
 					<td class='step-details'>============================================ TableDataSearch > Table 1</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>4:26:55 PM</td>
+					<td class='timestamp'>4:30:20 PM</td>
 					<td class='step-details'>Navigating to : https://www.seleniumeasy.com/test/table-search-filter-demo.html</td>
 				</tr>
 				<tr class='log' status='fail'>
 					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>4:27:02 PM</td>
-					<td class='step-details'><pre>java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:96)
-	at org.testng.Assert.failNotEquals(Assert.java:776)
-	at org.testng.Assert.assertTrue(Assert.java:44)
-	at org.testng.Assert.assertTrue(Assert.java:54)
-	at com.selenium.template.tests.Table.TableDataSearchTest.Test_01_Table_Table1(TableDataSearchTest.java:26)
+					<td class='timestamp'>4:30:29 PM</td>
+					<td class='step-details'><textarea>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WINDOWS (67e12191d96cbb7d93c8d424f4b8e42c)] -> css selector: #task-table > tbody > tr:nth-of-type(1) > td:nth-of-type(1)] (tried for 4 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'TSC-085L', ip: '10.1.8.70', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 79.0.3945.117, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\ANDREI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63348}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 67e12191d96cbb7d93c8d424f4b8e42c
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.selenium.template.page_objects.SeleniumEasy.Table.TableDataSearchPage.searchTableOne(TableDataSearchPage.java:55)
+	at com.selenium.template.tests.Table.TableDataSearchTest.Test_01_Table_Table1(TableDataSearchTest.java:24)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -209,13 +213,13 @@
 	at org.testng.TestNG.run(TestNG.java:1017)
 	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:73)
 	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
-</pre></td>
+</textarea></td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 							<ul class='screenshots'>
-								<li><img data-featherlight='C:\Users\Andrei Mirea\Desktop\IDEA Projects\GRUPA3Y (Andrei Mirea Branch)//Test-ScreenShots//Test_01_Table_Table1_2020_01_16 797.png' width='10%' src='C:\Users\Andrei Mirea\Desktop\IDEA Projects\GRUPA3Y (Andrei Mirea Branch)//Test-ScreenShots//Test_01_Table_Table1_2020_01_16 797.png' data-src='C:\Users\Andrei Mirea\Desktop\IDEA Projects\GRUPA3Y (Andrei Mirea Branch)//Test-ScreenShots//Test_01_Table_Table1_2020_01_16 797.png'></li>
+								<li><img data-featherlight='C:\Users\Andrei Mirea\Desktop\IDEA Projects\GRUPA3Y (Andrei Mirea Branch)//Test-ScreenShots//Test_01_Table_Table1_2020_01_16 182.png' width='10%' src='C:\Users\Andrei Mirea\Desktop\IDEA Projects\GRUPA3Y (Andrei Mirea Branch)//Test-ScreenShots//Test_01_Table_Table1_2020_01_16 182.png' data-src='C:\Users\Andrei Mirea\Desktop\IDEA Projects\GRUPA3Y (Andrei Mirea Branch)//Test-ScreenShots//Test_01_Table_Table1_2020_01_16 182.png'></li>
 							</ul>
 					</div>
 				</li>
@@ -224,14 +228,14 @@
 				<li class='test displayed active  fail' status='fail' bdd='false' test-id='2'>
 					<div class='test-heading'>
 						<span class='test-name'>Test_02_Table_Table2</span>
-						<span class='test-time'>Jan 16, 2020 04:27:02 PM</span>
+						<span class='test-time'>Jan 16, 2020 04:30:30 PM</span>
 						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Jan 16, 2020 04:27:02 PM</span>
-	<span class='label end-time'>Jan 16, 2020 04:27:04 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+475ms</span>
+	<span class='label start-time'>Jan 16, 2020 04:30:30 PM</span>
+	<span class='label end-time'>Jan 16, 2020 04:30:32 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 2s+521ms</span>
 </div>
 	<div class='test-desc'>TableDataSearch > Table 1 </div>
 	<div class='test-attributes'>
@@ -251,43 +255,28 @@
 			<tbody>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>4:27:02 PM</td>
+					<td class='timestamp'>4:30:30 PM</td>
 					<td class='step-details'>============================================ Test_02_Table_Table2</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>4:27:02 PM</td>
+					<td class='timestamp'>4:30:30 PM</td>
 					<td class='step-details'>============================================ TableDataSearch > Table 1</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>4:27:02 PM</td>
+					<td class='timestamp'>4:30:30 PM</td>
 					<td class='step-details'>Navigating to : https://www.seleniumeasy.com/test/table-search-filter-demo.html</td>
 				</tr>
 				<tr class='log' status='fail'>
 					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>4:27:04 PM</td>
-					<td class='step-details'><pre>org.openqa.selenium.ElementNotInteractableException: element not interactable
-  (Session info: chrome=79.0.3945.117)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'TSC-085L', ip: '10.1.8.70', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 79.0.3945.117, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\ANDREI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63119}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: abb81283e90acc92fc5f9dd93a0c839c
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:106)
-	at com.selenium.template.page_objects.SeleniumEasy.Table.TableDataSearchPage.filterTable(TableDataSearchPage.java:79)
-	at com.selenium.template.tests.Table.TableDataSearchTest.Test_02_Table_Table2(TableDataSearchTest.java:39)
+					<td class='timestamp'>4:30:32 PM</td>
+					<td class='step-details'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertTrue(Assert.java:44)
+	at org.testng.Assert.assertTrue(Assert.java:54)
+	at com.selenium.template.tests.Table.TableDataSearchTest.Test_02_Table_Table2(TableDataSearchTest.java:41)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -318,7 +307,7 @@ Session ID: abb81283e90acc92fc5f9dd93a0c839c
 		</table>
 	</div>
 							<ul class='screenshots'>
-								<li><img data-featherlight='C:\Users\Andrei Mirea\Desktop\IDEA Projects\GRUPA3Y (Andrei Mirea Branch)//Test-ScreenShots//Test_02_Table_Table2_2020_01_16 683.png' width='10%' src='C:\Users\Andrei Mirea\Desktop\IDEA Projects\GRUPA3Y (Andrei Mirea Branch)//Test-ScreenShots//Test_02_Table_Table2_2020_01_16 683.png' data-src='C:\Users\Andrei Mirea\Desktop\IDEA Projects\GRUPA3Y (Andrei Mirea Branch)//Test-ScreenShots//Test_02_Table_Table2_2020_01_16 683.png'></li>
+								<li><img data-featherlight='C:\Users\Andrei Mirea\Desktop\IDEA Projects\GRUPA3Y (Andrei Mirea Branch)//Test-ScreenShots//Test_02_Table_Table2_2020_01_16 465.png' width='10%' src='C:\Users\Andrei Mirea\Desktop\IDEA Projects\GRUPA3Y (Andrei Mirea Branch)//Test-ScreenShots//Test_02_Table_Table2_2020_01_16 465.png' data-src='C:\Users\Andrei Mirea\Desktop\IDEA Projects\GRUPA3Y (Andrei Mirea Branch)//Test-ScreenShots//Test_02_Table_Table2_2020_01_16 465.png'></li>
 							</ul>
 					</div>
 				</li>
@@ -432,12 +421,12 @@ Session ID: abb81283e90acc92fc5f9dd93a0c839c
 								</thead>
 								<tbody>
 									<tr>
-										<td>Jan 16, 2020 04:26:52 PM</td>
+										<td>Jan 16, 2020 04:30:17 PM</td>
 										<td class='linked' test-id='1'>Test_01_Table_Table1</td>
 										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 									<tr>
-										<td>Jan 16, 2020 04:27:02 PM</td>
+										<td>Jan 16, 2020 04:30:30 PM</td>
 										<td class='linked' test-id='2'>Test_02_Table_Table2</td>
 										<td><span class='test-status fail'>fail</span></td>
 									</tr>
@@ -485,7 +474,7 @@ Session ID: abb81283e90acc92fc5f9dd93a0c839c
 
                         <li class='exception displayed active'>
                             <div class='exception-heading'>
-                                <span class='exception-name'>java.lang.AssertionError</span>
+                                <span class='exception-name'>org.openqa.selenium.TimeoutException</span>
                                 <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
                             </div>
                             <div class='exception-content hide'>
@@ -500,14 +489,18 @@ Session ID: abb81283e90acc92fc5f9dd93a0c839c
                                         </thead>
                                         <tbody>
                                                     <tr>
-                                                        <td>Jan 16, 2020 04:26:52 PM</td>
+                                                        <td>Jan 16, 2020 04:30:17 PM</td>
                                                         <td class='linked' test-id='1'>Test_01_Table_Table1</td>
-                                                        <td><pre><pre>java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:96)
-	at org.testng.Assert.failNotEquals(Assert.java:776)
-	at org.testng.Assert.assertTrue(Assert.java:44)
-	at org.testng.Assert.assertTrue(Assert.java:54)
-	at com.selenium.template.tests.Table.TableDataSearchTest.Test_01_Table_Table1(TableDataSearchTest.java:26)
+                                                        <td><pre><textarea>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WINDOWS (67e12191d96cbb7d93c8d424f4b8e42c)] -> css selector: #task-table > tbody > tr:nth-of-type(1) > td:nth-of-type(1)] (tried for 4 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'TSC-085L', ip: '10.1.8.70', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 79.0.3945.117, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\ANDREI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63348}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 67e12191d96cbb7d93c8d424f4b8e42c
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.selenium.template.page_objects.SeleniumEasy.Table.TableDataSearchPage.searchTableOne(TableDataSearchPage.java:55)
+	at com.selenium.template.tests.Table.TableDataSearchTest.Test_01_Table_Table1(TableDataSearchTest.java:24)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -532,7 +525,7 @@ Session ID: abb81283e90acc92fc5f9dd93a0c839c
 	at org.testng.TestNG.run(TestNG.java:1017)
 	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:73)
 	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
-</pre></pre></td>
+</textarea></pre></td>
                                                     </tr>
                                         </tbody>
                                     </table>
@@ -541,7 +534,7 @@ Session ID: abb81283e90acc92fc5f9dd93a0c839c
                         </li>
                         <li class='exception displayed active'>
                             <div class='exception-heading'>
-                                <span class='exception-name'>org.openqa.selenium.ElementNotInteractableException</span>
+                                <span class='exception-name'>java.lang.AssertionError</span>
                                 <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
                             </div>
                             <div class='exception-content hide'>
@@ -556,29 +549,14 @@ Session ID: abb81283e90acc92fc5f9dd93a0c839c
                                         </thead>
                                         <tbody>
                                                     <tr>
-                                                        <td>Jan 16, 2020 04:27:02 PM</td>
+                                                        <td>Jan 16, 2020 04:30:30 PM</td>
                                                         <td class='linked' test-id='2'>Test_02_Table_Table2</td>
-                                                        <td><pre><pre>org.openqa.selenium.ElementNotInteractableException: element not interactable
-  (Session info: chrome=79.0.3945.117)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'TSC-085L', ip: '10.1.8.70', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 79.0.3945.117, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\ANDREI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63119}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: abb81283e90acc92fc5f9dd93a0c839c
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:106)
-	at com.selenium.template.page_objects.SeleniumEasy.Table.TableDataSearchPage.filterTable(TableDataSearchPage.java:79)
-	at com.selenium.template.tests.Table.TableDataSearchTest.Test_02_Table_Table2(TableDataSearchTest.java:39)
+                                                        <td><pre><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertTrue(Assert.java:44)
+	at org.testng.Assert.assertTrue(Assert.java:54)
+	at com.selenium.template.tests.Table.TableDataSearchTest.Test_02_Table_Table2(TableDataSearchTest.java:41)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -641,19 +619,19 @@ Session ID: abb81283e90acc92fc5f9dd93a0c839c
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Jan 16, 2020 04:26:52 PM</div>
+					<div class='panel-lead'>Jan 16, 2020 04:30:16 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Jan 16, 2020 04:27:04 PM</div>
+			 		<div class='panel-lead'>Jan 16, 2020 04:30:33 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 0m 11s+683ms</div>
+					<div class='panel-lead'>0h 0m 16s+277ms</div>
 				</div>
 			</div>
 			<div class='col s6'>

@@ -1,4 +1,5 @@
 package com.selenium.template.tests.Table;
+
 import com.selenium.template.extent_report.ExtentTestListener;
 import com.selenium.template.page_objects.SeleniumEasy.Table.TableDataSearchPage;
 import com.selenium.template.utils.SeleniumWrapper;
@@ -22,7 +23,7 @@ public class TableDataSearchTest extends ExtentTestListener {
 
         String[] Table1 = {"3", "SEO tags", "Holden Charles", "failed qa"};
         boolean check1 = TableDataSearchPage.searchTableOne(Table1);
-        boolean check2 = TableDataSearchPage.noResults("%$&^@()&()@");
+        boolean check2 = TableDataSearchPage.noResultsOne("%$&^@()&()@");
         Assert.assertTrue(check1 && check2);
         testPass("Assert message was received: " + (check1 && check2));
     }
@@ -37,6 +38,8 @@ public class TableDataSearchTest extends ExtentTestListener {
         String[] Table2 = {"1", "larrypt", "Rajano", "Karano"};
         TableDataSearchPage.clickFilter();
         boolean check1 = TableDataSearchPage.filterTable(Table2);
-       boolean check2 = true;
-            Assert.assertTrue(check1 && check2);
-    testPass("Assert message was received: " + (check1 && check2));}}
+        boolean check2 = true;
+        Assert.assertTrue(check1 && check2);
+        testPass("Assert message was received: " + (check1 && check2));
+    }
+}
