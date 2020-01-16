@@ -42,8 +42,8 @@ public class TableDataSearchPage extends PageBase {
 @FindBy(xpath = "//div[@class='panel panel-primary filterable']")
 private WebElement tableTwo;
 
-    private WebElement selectField(String fieldname) {
-        return driver.findElement(By.xpath("//input[@placeholder='"+fieldname+"']"));
+    private WebElement selectField(int i) {
+        return driver.findElement(By.cssSelector("tr.filters > th:nth-of-type("+i+++") > input.form-control"));
     }
 
     @FindBy(xpath = "//button[@class='btn btn-default btn-xs btn-filter']")
@@ -54,13 +54,12 @@ private WebElement tableTwo;
   public boolean searchTableOne(String[] keywords){
       boolean check1 = true;
       for (int i=0; i<keywords.length ; i++){
-             filterOne.click();
-             filterOne.clear();
              filterOne.sendKeys(keywords[i]);
           if (!table1Elems[i].getText().equals(keywords[i])) {
               check1 = false;
-          }
-      } return check1;
+          }  filterOne.clear();
+      }
+      return check1;
 }
 //----------------------------------------------------------------- Table 1 Methods (NEGATIVE)
 
@@ -77,6 +76,11 @@ private WebElement tableTwo;
     }
 
     public boolean filterTable(String[] keywords){
-
-    }
-}
+      boolean check2 = true;
+            for (int i=0; i<keywords.length; i++){
+            selectField(i).sendKeys(keywords[i]);
+            if (!selectField(i).getText().equals(keywords[i]))
+            { check2 = false;
+        }
+    }     return check2;
+}}
