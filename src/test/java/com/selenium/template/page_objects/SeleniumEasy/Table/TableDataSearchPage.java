@@ -69,7 +69,7 @@ private WebElement tableTwo;
         wait.until(ExpectedConditions.visibilityOf(noResultsElem));
         return noResultsElem.isDisplayed();
     }
-//-----------------------------------------------------------Table 2 Methods
+//----------------------/////////////////////////////////----------------------Table 2 Methods
 
     public void clickFilter(){
       filterButton.click();

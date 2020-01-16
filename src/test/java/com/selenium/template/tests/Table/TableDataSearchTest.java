@@ -17,17 +17,23 @@ public class TableDataSearchTest extends ExtentTestListener {
         WebDriver driver = getDriver();
         TableDataSearchPage TableDataSearchPage = new TableDataSearchPage(driver);
 
-        SeleniumWrapper.openIfLinkExists(driver, TestData.SELENIUM_INPUTFORMS_AJAXFORMSUBMIT);
+        SeleniumWrapper.openIfLinkExists(driver, TestData.SELENIUM_TABLE_TABLEDATASEARCH);
         driver.manage().window().maximize();
 
-
-//        boolean check1 = TableDataSearchPage.submitEmpty();
-//
-//        TableDataSearchPage.fillTitle("Hello everybody");
-//        TableDataSearchPage.fillComment("This is a description of some sort");
-//        TableDataSearchPage.clickSubmit();
-//        boolean check2 = AjaxFormPage.successCheck("Successfully!");
-//        Assert.assertTrue(check1 && check2);
-//        testPass("Assert message was received: " + (check1 && check2));
+        String[] Table1 = {"3", "SEO tags", "Holden Charles", "failed qa"};
+        boolean check1 = TableDataSearchPage.searchTableOne(Table1);
+        boolean check2 = TableDataSearchPage.noResults("%$&^@()&()@");
+        Assert.assertTrue(check1 && check2);
+        testPass("Assert message was received: " + (check1 && check2));
     }
+
+    @Test(groups = "Test", description = "TableDataSearch > Table 1")
+    public void Test_01_Table_Table1() throws Exception {
+
+        WebDriver driver = getDriver();
+        TableDataSearchPage TableDataSearchPage = new TableDataSearchPage(driver);
+
+        SeleniumWrapper.openIfLinkExists(driver, TestData.SELENIUM_TABLE_TABLEDATASEARCH);
+        String[] Table2 = {"1", "larrypt", "Rajano", "Karano"};
+        boolean check2 = TableDataSearchPage.("Successfully!");
 }
