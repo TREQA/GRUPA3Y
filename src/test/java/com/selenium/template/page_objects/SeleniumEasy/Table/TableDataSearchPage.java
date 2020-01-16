@@ -19,21 +19,19 @@ public class TableDataSearchPage extends PageBase {
     @FindBy(xpath = "//input[@id='task-table-filter']")
     private WebElement filterOne;
 
-    @FindBy(xpath = "//div[@class='panel panel-primary']")
-    private WebElement tableOne;
-
-    @FindBy(xpath="//th[contains(text(),'#')]")
+     @FindBy(css="#task-table > tbody > tr:nth-of-type(1) > td:nth-of-type(1)")
     private WebElement hashtag;
 
-    @FindBy(xpath="//th[contains(text(),'Task')]")
-    private WebElement Task;
+    @FindBy(css="#task-table > tbody > tr:nth-of-type(1) > td:nth-of-type(2)")
+    private WebElement task;
 
-    @FindBy(xpath="//th[contains(text(),'Assignee')]")
-    private WebElement Assignee;
+    @FindBy(css="#task-table > tbody > tr:nth-of-type(1) > td:nth-of-type(3)")
+    private WebElement assignee;
 
-    @FindBy(xpath="//th[contains(text(),'Status')]")
-    private WebElement Status;
+    @FindBy(css="#task-table > tbody > tr:nth-of-type(1) > td:nth-of-type(4)")
+    private WebElement status;
 
+    WebElement[] table1Elems = {hashtag, task, assignee, status};
     //------------------------------------------------------- Table 2 Elements
 
 @FindBy(xpath = "//div[@class='panel panel-primary filterable']")
@@ -48,7 +46,19 @@ private WebElement tableTwo;
 
     //---------------------------------------------------------- Table 1 Methods
 
-  public void searchTableOne(String keyword){
-
+  public boolean searchTableOne(String[] keywords){
+      boolean check1 = true;
+      for (int i=0; i<keywords.length() ; i++){
+             filterOne.click();
+             filterOne.clear();
+             filterOne.sendKeys(keywords[i]);
+          if (!table1Elems[i].getText().equals(keywords[i])) {
+              check1 = false;
+          }
       }
+}
+
+
+
+
 }
