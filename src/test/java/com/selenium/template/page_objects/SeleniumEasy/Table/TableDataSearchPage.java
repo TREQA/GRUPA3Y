@@ -1,8 +1,6 @@
 package com.selenium.template.page_objects.SeleniumEasy.Table;
 
 import com.selenium.template.page_objects.PageBase;
-import com.selenium.template.utils.SeleniumWrapper;
-import com.selenium.template.utils.TestData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,9 +19,8 @@ public class TableDataSearchPage extends PageBase {
     @FindBy(xpath = "//input[@id='task-table-filter']")
     private WebElement filterOne;
 
-    private WebElement selectFieldsTableOne(int i) {
-        i++;
-        return driver.findElement(By.cssSelector("#task-table > tbody > tr:nth-of-type(1) > td:nth-of-type(" + i + ")"));
+    private WebElement selectFieldsTableOne(String keywords) {
+        return driver.findElement(By.xpath("//H3[@class='panel-title'][text()='Tasks']/../..//TD[text()='" + keywords + "']"));
     }
 
     @FindBy(xpath = "//td[contains(text(),'No results found')]")
@@ -39,9 +36,8 @@ public class TableDataSearchPage extends PageBase {
         return driver.findElement(By.cssSelector("tr.filters > th:nth-of-type(" + i + ") > input.form-control"));
     }
 
-    private WebElement selectOutputFieldsTable2(int i) {
-        i++;
-        return driver.findElement(By.cssSelector("div.panel.panel-primary.filterable > table.table > tbody > tr:nth-of-type(1) > td:nth-of-type(" + i + ")"));
+    private WebElement selectOutputFieldsTable2(String keywords) {
+        return driver.findElement(By.xpath("//H3[@class='panel-title'][text()='Listed Users']/../..//TD[text()='" + keywords + "']"));
     }
 
     @FindBy(xpath = "//button[@class='btn btn-default btn-xs btn-filter']")
@@ -56,7 +52,7 @@ public class TableDataSearchPage extends PageBase {
         boolean check1 = true;
         for (int i = 0; i < keywords.length; i++) {
             filterOne.sendKeys(keywords[i]);
-           if (!selectFieldsTableOne(i).getText().contains(keywords[i])) {
+            if (!selectFieldsTableOne(keywords[i]).isDisplayed()) {
                 check1 = false;
             }
             filterOne.clear();
@@ -81,9 +77,10 @@ public class TableDataSearchPage extends PageBase {
         boolean check2 = true;
         for (int i = 0; i < keywords.length; i++) {
             selectInputFieldsTable2(i).sendKeys(keywords[i]);
-            if (!selectOutputFieldsTable2(i).getText().contains(keywords[i])) {
+            if (!selectOutputFieldsTable2(keywords[i]).isDisplayed()) {
                 check2 = false;
-            } selectInputFieldsTable2(i).clear();
+            }
+            selectInputFieldsTable2(i).clear();
         }
         return check2;
     }
@@ -92,12 +89,15 @@ public class TableDataSearchPage extends PageBase {
     public boolean noResults2(String[] keywords, String garbage) {
         WebDriverWait wait = new WebDriverWait(driver, 4);
         boolean check = true;
-            for (int i = 0; i < keywords.length; i++) {
+        for (int i = 0; i < keywords.length; i++) {
             selectInputFieldsTable2(i).sendKeys(garbage);
-                   wait.until(ExpectedConditions.visibilityOf(noResultsElemTable2));
-                   if (!noResultsElemTable2.isDisplayed()){
-                       check = false;
-                   }
+            wait.until(ExpectedConditions.visibilityOf(noResultsElemTable2));
+            if (!noResultsElemTable2.isDisplayed()) {
+                check = false;
+            }
+            selectInputFieldsTable2(i).clear();
 
-    } return check;
-}}
+        }
+        return check;
+    }
+}
