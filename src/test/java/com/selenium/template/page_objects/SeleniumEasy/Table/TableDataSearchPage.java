@@ -49,6 +49,9 @@ private WebElement tableTwo;
     @FindBy(xpath = "//button[@class='btn btn-default btn-xs btn-filter']")
     private WebElement filterButton;
 
+    @FindBy(xpath="//td[contains(text(),'No result found')]")
+    private WebElement noResultsElemTable2;
+
     //---------------------------------------------------------- Table 1 Methods (POSITIVE)
 
   public boolean searchTableOne(String[] keywords){
@@ -65,7 +68,7 @@ private WebElement tableTwo;
 
     public boolean noResults(String garbage){
       filterOne.sendKeys(garbage);
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        WebDriverWait wait = new WebDriverWait(driver, 1);
         wait.until(ExpectedConditions.visibilityOf(noResultsElem));
         return noResultsElem.isDisplayed();
     }
@@ -83,4 +86,12 @@ private WebElement tableTwo;
             { check2 = false;
         }
     }     return check2;
-}}
+}
+        //--------------------------------------------------------------------------Table 2 Methods (NEGATIVE)
+                   public boolean noResults2(String garbage){
+                filterOne.sendKeys(garbage);
+                WebDriverWait wait = new WebDriverWait(driver, 1);
+                wait.until(ExpectedConditions.visibilityOf(noResultsElemTable2));
+                return noResultsElemTable2.isDisplayed();
+            }
+        }

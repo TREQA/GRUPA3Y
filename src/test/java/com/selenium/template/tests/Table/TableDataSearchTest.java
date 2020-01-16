@@ -35,5 +35,8 @@ public class TableDataSearchTest extends ExtentTestListener {
 
         SeleniumWrapper.openIfLinkExists(driver, TestData.SELENIUM_TABLE_TABLEDATASEARCH);
         String[] Table2 = {"1", "larrypt", "Rajano", "Karano"};
-        boolean check2 = TableDataSearchPage.("Successfully!");
-}
+        TableDataSearchPage.clickFilter();
+        boolean check1 = TableDataSearchPage.filterTable(Table2);
+       boolean check2 = ......
+            Assert.assertTrue(check1 && check2);
+    testPass("Assert message was received: " + (check1 && check2));
