@@ -53,22 +53,22 @@ private WebElement tableTwo;
 
   public boolean searchTableOne(String[] keywords){
       boolean check1 = true;
-      for (int i=0; i<keywords.length() ; i++){
+      for (int i=0; i<keywords.length ; i++){
              filterOne.click();
              filterOne.clear();
              filterOne.sendKeys(keywords[i]);
           if (!table1Elems[i].getText().equals(keywords[i])) {
               check1 = false;
           }
-      }
+      } return check1;
 }
 //----------------------------------------------------------------- Table 1 Methods (NEGATIVE)
 
     public boolean noResults(String garbage){
       filterOne.sendKeys(garbage);
         WebDriverWait wait = new WebDriverWait(driver, 15);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(noResultsElem);
-        return driver.findElement(noResultsElem).isEnabled();
+        wait.until(ExpectedConditions.visibilityOf(noResultsElem));
+        return noResultsElem.isDisplayed();
     }
 //-----------------------------------------------------------Table 2 Methods
 
