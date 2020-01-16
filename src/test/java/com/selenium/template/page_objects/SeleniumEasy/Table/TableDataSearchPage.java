@@ -22,6 +22,18 @@ public class TableDataSearchPage extends PageBase {
     @FindBy(xpath = "//div[@class='panel panel-primary']")
     private WebElement tableOne;
 
+    @FindBy(xpath="//th[contains(text(),'#')]")
+    private WebElement hashtag;
+
+    @FindBy(xpath="//th[contains(text(),'Task')]")
+    private WebElement Task;
+
+    @FindBy(xpath="//th[contains(text(),'Assignee')]")
+    private WebElement Assignee;
+
+    @FindBy(xpath="//th[contains(text(),'Status')]")
+    private WebElement Status;
+
     //------------------------------------------------------- Table 2 Elements
 
 @FindBy(xpath = "//div[@class='panel panel-primary filterable']")
@@ -37,5 +49,6 @@ private WebElement tableTwo;
     //---------------------------------------------------------- Table 1 Methods
 
   public void searchTableOne(String keyword){
+
       }
 }
