@@ -56,9 +56,7 @@ public class TableDataSearchPage extends PageBase {
         boolean check1 = true;
         for (int i = 0; i < keywords.length; i++) {
             filterOne.sendKeys(keywords[i]);
-            WebDriverWait wait = new WebDriverWait(driver, 4);
-            wait.until(ExpectedConditions.visibilityOf(selectFieldsTableOne(i)));
-            if (!selectOutputFieldsTableOne(i).getText().contains(keywords[i])) {
+           if (!selectFieldsTableOne(i).getText().contains(keywords[i])) {
                 check1 = false;
             }
             filterOne.clear();
@@ -85,7 +83,7 @@ public class TableDataSearchPage extends PageBase {
             selectInputFieldsTable2(i).sendKeys(keywords[i]);
             if (!selectOutputFieldsTable2(i).getText().contains(keywords[i])) {
                 check2 = false;
-            }
+            } selectInputFieldsTable2(i).clear();
         }
         return check2;
     }
@@ -97,7 +95,7 @@ public class TableDataSearchPage extends PageBase {
             for (int i = 0; i < keywords.length; i++) {
             selectInputFieldsTable2(i).sendKeys(garbage);
                    wait.until(ExpectedConditions.visibilityOf(noResultsElemTable2));
-                   if (!noResultsElem.isDisplayed()){
+                   if (!noResultsElemTable2.isDisplayed()){
                        check = false;
                    }
 

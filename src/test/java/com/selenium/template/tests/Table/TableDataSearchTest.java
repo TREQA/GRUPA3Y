@@ -38,7 +38,7 @@ public class TableDataSearchTest extends ExtentTestListener {
         String[] Table2 = {"1", "larrypt", "Rajano", "Karano"};
         TableDataSearchPage.clickFilter();
         boolean check1 = TableDataSearchPage.filterTable(Table2);
-        boolean check2 = true;
+        boolean check2 = TableDataSearchPage.noResults2(Table2, "^&*#^&*");
         Assert.assertTrue(check1 && check2);
         testPass("Assert message was received: " + (check1 && check2));
     }
