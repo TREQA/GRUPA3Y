@@ -21,29 +21,22 @@ public class TableDataSearchPage extends PageBase {
     @FindBy(xpath = "//input[@id='task-table-filter']")
     private WebElement filterOne;
 
-     @FindBy(css="#task-table > tbody > tr:nth-of-type(1) > td:nth-of-type(1)")
-    private WebElement hashtag;
-
-    @FindBy(css="#task-table > tbody > tr:nth-of-type(1) > td:nth-of-type(2)")
-    private WebElement task;
-
-    @FindBy(css="#task-table > tbody > tr:nth-of-type(1) > td:nth-of-type(3)")
-    private WebElement assignee;
-
-    @FindBy(css="#task-table > tbody > tr:nth-of-type(1) > td:nth-of-type(4)")
-    private WebElement status;
+    private WebElement selectFieldsTableOne(int i) {
+        i++;
+        return driver.findElement(By.cssSelector("#task-table > tbody > tr:nth-of-type(1) > td:nth-of-type("+i+")"));
+    }
 
     @FindBy(xpath="//td[contains(text(),'No results found')]")
             private WebElement noResultsElem;
 
-    WebElement[] table1Elems = {hashtag, task, assignee, status};
     //------------------------------------------------------- Table 2 Elements
 
 @FindBy(xpath = "//div[@class='panel panel-primary filterable']")
 private WebElement tableTwo;
 
-    private WebElement selectField(int i) {
-        return driver.findElement(By.cssSelector("tr.filters > th:nth-of-type("+i+++") > input.form-control"));
+    private WebElement selectFieldsTable2(int i) {
+        i++;
+        return driver.findElement(By.cssSelector("tr.filters > th:nth-of-type("+i+") > input.form-control"));
     }
 
     @FindBy(xpath = "//button[@class='btn btn-default btn-xs btn-filter']")
@@ -56,9 +49,11 @@ private WebElement tableTwo;
 
   public boolean searchTableOne(String[] keywords){
       boolean check1 = true;
-      for (int i=0; i<keywords.length ; i++){
+      for (int i=0; i<keywords.length; i++){
              filterOne.sendKeys(keywords[i]);
-          if (!table1Elems[i].getText().equals(keywords[i])) {
+          WebDriverWait wait = new WebDriverWait(driver, 4);
+          wait.until(ExpectedConditions.visibilityOf(selectFieldsTableOne(i)));
+          if (!selectFieldsTableOne(i).getText().contains(keywords[i])) {
               check1 = false;
           }  filterOne.clear();
       }
@@ -68,7 +63,7 @@ private WebElement tableTwo;
 
     public boolean noResults(String garbage){
       filterOne.sendKeys(garbage);
-        WebDriverWait wait = new WebDriverWait(driver, 1);
+        WebDriverWait wait = new WebDriverWait(driver, 4);
         wait.until(ExpectedConditions.visibilityOf(noResultsElem));
         return noResultsElem.isDisplayed();
     }
@@ -81,8 +76,8 @@ private WebElement tableTwo;
     public boolean filterTable(String[] keywords){
       boolean check2 = true;
             for (int i=0; i<keywords.length; i++){
-            selectField(i).sendKeys(keywords[i]);
-            if (!selectField(i).getText().equals(keywords[i]))
+            selectFieldsTable2(i).sendKeys(keywords[i]);
+            if (!selectFieldsTable2(i).getText().contains(keywords[i]))
             { check2 = false;
         }
     }     return check2;
@@ -90,7 +85,7 @@ private WebElement tableTwo;
         //--------------------------------------------------------------------------Table 2 Methods (NEGATIVE)
                    public boolean noResults2(String garbage){
                 filterOne.sendKeys(garbage);
-                WebDriverWait wait = new WebDriverWait(driver, 1);
+                WebDriverWait wait = new WebDriverWait(driver, 4);
                 wait.until(ExpectedConditions.visibilityOf(noResultsElemTable2));
                 return noResultsElemTable2.isDisplayed();
             }
