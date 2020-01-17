@@ -1,5 +1,4 @@
 package com.selenium.template.tests.Table;
-
 import com.selenium.template.extent_report.ExtentTestListener;
 import com.selenium.template.page_objects.SeleniumEasy.Table.TableDataSearchPage;
 import com.selenium.template.utils.SeleniumWrapper;

@@ -15,4 +15,7 @@ public class TestData {
     public static final String SELENIUM_INPUTFORMS_JQUERYSELECTDD = "https://www.seleniumeasy.com/test/jquery-dropdown-search-demo.html";
     public static final String SELENIUM_PROGRESSBAR_BOOTSTRAP = "https://www.seleniumeasy.com/test/bootstrap-download-progress-demo.html";
     public static final String SELENIUM_TABLE_TABLEDATASEARCH = "https://www.seleniumeasy.com/test/table-search-filter-demo.html";
+    public static final String SELENIUM_DATE_DATE_BOOTS = "https://www.seleniumeasy.com/test/bootstrap-date-picker-demo.html";
+    public static final String SELENIUM_DATE_DATE_JQUERY = "https://www.seleniumeasy.com/test/jquery-date-picker-demo.html";
+
 }
