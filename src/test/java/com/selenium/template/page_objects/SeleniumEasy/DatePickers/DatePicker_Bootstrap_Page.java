@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import java.lang.*;
+
 
 import java.time.Month;
 
@@ -62,7 +64,12 @@ public class DatePicker_Bootstrap_Page<rearrange> extends PageBase {
     }
 
     public String convertInputDate(String[] date) {
-        Month[] months = Month.values();
+        String[] sMonths = new String[0];
+        int intMonth;
+        for (int i=0; i<12; i++){
+            if (Month.values()[i].name().contains(date[1]){
+            intMonth=i;}   AM RAMAS AICI TODO
+        }
         String rearrange = date[0] + "/" + date[1] + "/" + date[2];
         String finalDate = rearrange.replaceAll("(\\d\\d\\/)(\\d\\d)(\\/\\d\\d)", "$2");
         int monthSortedOut = Integer.parseInt(finalDate) - 1;
