@@ -1,4 +1,5 @@
 package com.selenium.template.tests.DatePicker;
+
 import com.selenium.template.extent_report.ExtentTestListener;
 import com.selenium.template.page_objects.SeleniumEasy.DatePickers.DatePicker_Bootstrap_Page;
 import com.selenium.template.utils.SeleniumWrapper;
@@ -18,9 +19,12 @@ public class DatePicker_Bootstrap_Test extends ExtentTestListener {
         SeleniumWrapper.openIfLinkExists(driver, TestData.SELENIUM_DATE_DATE_BOOTS);
         driver.manage().window().maximize();
 
-        String[] date={"17", "Nov", "1997"};
+        String[] date = {"17", "Nov", "1997"};
         DatePicker_Bootstrap_Page.dateChooserOne(date);
-        boolean check1 = DatePicker_Bootstrap_Page.checkDateOne(date);
+        String fieldDate = DatePicker_Bootstrap_Page.getFieldDate();
+        String convertedInputDate = DatePicker_Bootstrap_Page.convertInputDate(date);
+        boolean check1 = DatePicker_Bootstrap_Page.compareDates(fieldDate, convertedInputDate);
         Assert.assertTrue(check1);
         testPass("Assert message was received: " + (check1));
-    }}
+    }
+}
