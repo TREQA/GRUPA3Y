@@ -19,7 +19,7 @@ public class DatePicker_Bootstrap_Test extends ExtentTestListener {
         SeleniumWrapper.openIfLinkExists(driver, TestData.SELENIUM_DATE_DATE_BOOTS);
         driver.manage().window().maximize();
 
-        String[] date = {"17", "Nov", "1997"};
+        String[] date = {"17", "Dec", "1997"};
         DatePicker_Bootstrap_Page.dateChooserOne(date);
         String fieldDate = DatePicker_Bootstrap_Page.getFieldDate();
         String convertedInputDate = DatePicker_Bootstrap_Page.convertInputDate(date);

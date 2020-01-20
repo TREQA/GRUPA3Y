@@ -2,11 +2,16 @@ package com.selenium.template.page_objects.SeleniumEasy.DatePickers;
 
 import com.selenium.template.page_objects.PageBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import java.awt.Toolkit;
+import java.awt.datatransfer.*;
+
+import java.io.IOException;
 import java.lang.*;
 
 
@@ -20,7 +25,7 @@ public class DatePicker_Bootstrap_Page<rearrange> extends PageBase {
 
     //------------------------------------------------------------------------------ Date Picker One Elements
 
-    @FindBy(xpath = "//input[@placeholder='dd/mm/yyyy']")
+    @FindBy(xpath="//DIV[@class='panel-heading'][text()='Date Example :']/..//INPUT[@type='text']")
     private WebElement dateFieldOne;
 
     @FindBy(css = "div.datepicker-days > table.table-condensed > thead > tr:nth-of-type(2) > th.datepicker-switch")
@@ -60,26 +65,51 @@ public class DatePicker_Bootstrap_Page<rearrange> extends PageBase {
     }
 
     public String getFieldDate() {
-        return dateFieldOne.getText();
+        String selectAll = Keys.chord(Keys.CONTROL, "a");
+        String copyToClipboard = Keys.chord(Keys.CONTROL, "c");
+        dateFieldOne.sendKeys(selectAll);
+        dateFieldOne.sendKeys(copyToClipboard);
+        String result = "";
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        // odd: the Object param of getContents is not currently used
+        Transferable contents = clipboard.getContents(null);
+        boolean hasTransferableText = (contents != null)
+                && contents.isDataFlavorSupported(DataFlavor.stringFlavor);
+        if (hasTransferableText) {
+            try {
+                result = (String) contents
+                        .getTransferData(DataFlavor.stringFlavor);
+            } catch (UnsupportedFlavorException | IOException ex) {
+                System.out.println(ex);
+                ex.printStackTrace();
+            }
+        } return result;
+
     }
 
     public String convertInputDate(String[] date) {
-        String[] sMonths = new String[0];
-        int intMonth;
-        for (int i=0; i<12; i++){
-            if (Month.values()[i].name().contains(date[1]){
-            intMonth=i;}   AM RAMAS AICI TODO
+        String[] sMonths = new String[12];
+        int intMonth = 0;
+        for (int i=0; i< sMonths.length; i++){
+            sMonths[i] = Month.values()[i].name().toLowerCase();
         }
-        String rearrange = date[0] + "/" + date[1] + "/" + date[2];
-        String finalDate = rearrange.replaceAll("(\\d\\d\\/)(\\d\\d)(\\/\\d\\d)", "$2");
-        int monthSortedOut = Integer.parseInt(finalDate) - 1;
-        if (monthSortedOut < 10) {
-            rearrange = rearrange.replaceAll("(\\d\\d\\/\\d)(\\d)(\\/\\d\\d)", "$1" + monthSortedOut + "$3");
-        } else rearrange = rearrange.replaceAll("(\\d\\d\\/)(\\d\\d)(\\/\\d\\d)", "$1" + monthSortedOut + "$3");
+        for (int i = 0; i < sMonths.length; i++) {
+           try {if (sMonths[i].contains(date[1].toLowerCase())) {
+                intMonth = i+1;
+            }}
+           catch (Exception e){
+               System.out.println("Month wasn't encountered!");
+           }
+        } String rearrange;
+        if (intMonth < 10) {
+            rearrange = date[0] + "/0" + intMonth + "/" + date[2];
+        } else rearrange = date[0] + "/" + intMonth + "/" + date[2];
+        System.out.println("THIS IS REARRANGE: "+ rearrange);
+
         return rearrange;
     }
 
-    public boolean compareDates(String a, String b) {
-        return a == b;
+    public boolean compareDates(String fieldDate, String convertedInputDate) {
+        return fieldDate.contains(convertedInputDate);
     }
 }
