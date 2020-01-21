@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.awt.Toolkit;
 import java.awt.datatransfer.*;
 
@@ -25,7 +26,7 @@ public class DatePicker_Bootstrap_Page<rearrange> extends PageBase {
 
     //------------------------------------------------------------------------------ Date Picker One Elements
 
-    @FindBy(xpath="//DIV[@class='panel-heading'][text()='Date Example :']/..//INPUT[@type='text']")
+    @FindBy(xpath = "//DIV[@class='panel-heading'][text()='Date Example :']/..//INPUT[@type='text']")
     private WebElement dateFieldOne;
 
     @FindBy(css = "div.datepicker-days > table.table-condensed > thead > tr:nth-of-type(2) > th.datepicker-switch")
@@ -37,7 +38,7 @@ public class DatePicker_Bootstrap_Page<rearrange> extends PageBase {
     @FindBy(xpath = "//div[@class='datepicker-months']//th[@class='datepicker-switch']")
     private WebElement checkYearOne;
 
-    private WebElement chooseMonthOne(String month) {
+        private WebElement chooseMonthOne(String month) {
         return driver.findElement(By.xpath("//span[contains(text(),'" + month + "')]"));
     }
 
@@ -47,16 +48,16 @@ public class DatePicker_Bootstrap_Page<rearrange> extends PageBase {
 
     //------------------------------------------------Date Picker 2 Elements
 
-    //------------------------------///////////////////////////////////////////-------------------------Date Picker One Methods
+    //------------------------------///////////////////////////////////////////-------------------------Date Picker Universal Methods
 
-    public void dateChooserOne(String[] date) {
-        dateFieldOne.click();
-        monthButtonOne.click();
+    public void dateChooserOne(String[] date, WebElement[] buttons) {
+        buttons[0].click();
+        buttons[1].click();
         WebDriverWait wait = new WebDriverWait(driver, 4);
         for (int i = 0; i < 100; i++) {
-            if (!checkYearOne.getText().contains(date[2])) {
-                wait.until(ExpectedConditions.elementToBeClickable(prevButtonOne));
-                prevButtonOne.click();
+            if (!buttons[3].getText().contains(date[2])) {
+                wait.until(ExpectedConditions.elementToBeClickable(buttons[2]));
+                buttons[2].click();
             } else break;
 
         }
@@ -83,33 +84,52 @@ public class DatePicker_Bootstrap_Page<rearrange> extends PageBase {
                 System.out.println(ex);
                 ex.printStackTrace();
             }
-        } return result;
+        }
+        return result;
 
     }
 
     public String convertInputDate(String[] date) {
         String[] sMonths = new String[12];
         int intMonth = 0;
-        for (int i=0; i< sMonths.length; i++){
+        for (int i = 0; i < sMonths.length; i++) {
             sMonths[i] = Month.values()[i].name().toLowerCase();
         }
         for (int i = 0; i < sMonths.length; i++) {
-           try {if (sMonths[i].contains(date[1].toLowerCase())) {
-                intMonth = i+1;
-            }}
-           catch (Exception e){
-               System.out.println("Month wasn't encountered!");
-           }
-        } String rearrange;
+            try {
+                if (sMonths[i].contains(date[1].toLowerCase())) {
+                    intMonth = i + 1;
+                }
+            } catch (Exception e) {
+                System.out.println("Month wasn't encountered!");
+            }
+        }
+        String rearrange;
         if (intMonth < 10) {
             rearrange = date[0] + "/0" + intMonth + "/" + date[2];
         } else rearrange = date[0] + "/" + intMonth + "/" + date[2];
-        System.out.println("THIS IS REARRANGE: "+ rearrange);
-
         return rearrange;
     }
 
     public boolean compareDates(String fieldDate, String convertedInputDate) {
         return fieldDate.contains(convertedInputDate);
+    }
+    // -------------------------------///////////////////////////--------------------------- Date Picker One Methods
+
+    public WebElement[] buttonsOne(){
+        WebElement[] buttonsOne = {dateFieldOne, monthButtonOne, prevButtonOne, checkYearOne};
+        return buttonsOne;
+    }
+
+    //--------------//////////////////////////------------------------------ Date Picker 2 Methods
+
+    public WebElement[] buttons2One(){
+        WebElement[] buttonsOne = {dateFieldOne, monthButtonOne, prevButtonOne, checkYearOne};
+        return buttonsOne;
+    }
+
+    public WebElement[] buttons2Two(){
+        WebElement[] buttonsOne = {dateFieldOne, monthButtonOne, prevButtonOne, checkYearOne};
+        return buttonsOne;
     }
 }
