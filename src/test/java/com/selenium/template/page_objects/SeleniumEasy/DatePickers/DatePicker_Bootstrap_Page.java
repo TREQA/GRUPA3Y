@@ -30,46 +30,56 @@ public class DatePicker_Bootstrap_Page<rearrange> extends PageBase {
     private WebElement dateFieldOne;
 
     @FindBy(css = "div.datepicker-days > table.table-condensed > thead > tr:nth-of-type(2) > th.datepicker-switch")
-    private WebElement monthButtonOne;
+    private WebElement monthButton;
 
     @FindBy(css = "div.datepicker-months > table.table-condensed > thead > tr:nth-of-type(2) > th.prev")
-    private WebElement prevButtonOne;
+    private WebElement prevButton;
 
     @FindBy(xpath = "//div[@class='datepicker-months']//th[@class='datepicker-switch']")
-    private WebElement checkYearOne;
+    private WebElement checkYear;
 
-        private WebElement chooseMonthOne(String month) {
+        private WebElement chooseMonth(String month) {
         return driver.findElement(By.xpath("//span[contains(text(),'" + month + "')]"));
     }
 
-    private WebElement chooseDayOne(String day) {
+    private WebElement chooseDay(String day) {
         return driver.findElement(By.xpath("//td[contains(text(),'" + day + "')]"));
     }
 
-    //------------------------------------------------Date Picker 2 Elements
+    //------------------------------------------------Date Picker 2-Start Elements
+
+    @FindBy(xpath = "//input[@placeholder='Start date']")
+    private WebElement dateField2Start;
+
+      //------------------------------------------------Date Picker 2-End Elements
+
+    @FindBy(xpath = "//DIV[@class='panel-heading'][text()='Date Example :']/..//INPUT[@type='text']")
+    private WebElement dateField2End;
+
+    private WebElement field[] = {dateFieldOne, dateField2Start, dateField2End};
 
     //------------------------------///////////////////////////////////////////-------------------------Date Picker Universal Methods
 
-    public void dateChooserOne(String[] date, WebElement[] buttons) {
-        buttons[0].click();
-        buttons[1].click();
+    public void dateChooser(String[] date, WebElement field) {
+        field.click();
+        monthButton.click();
         WebDriverWait wait = new WebDriverWait(driver, 4);
         for (int i = 0; i < 100; i++) {
-            if (!buttons[3].getText().contains(date[2])) {
-                wait.until(ExpectedConditions.elementToBeClickable(buttons[2]));
-                buttons[2].click();
+            if (!checkYear.getText().contains(date[2])) {
+                wait.until(ExpectedConditions.elementToBeClickable(prevButton));
+                prevButton.click();
             } else break;
 
         }
-        chooseMonthOne(date[1]).click();
-        chooseDayOne(date[0]).click();
+        chooseMonth(date[1]).click();
+        chooseDay(date[0]).click();
     }
 
-    public String getFieldDate() {
+    public String getFieldDate(WebElement field) {
         String selectAll = Keys.chord(Keys.CONTROL, "a");
         String copyToClipboard = Keys.chord(Keys.CONTROL, "c");
-        dateFieldOne.sendKeys(selectAll);
-        dateFieldOne.sendKeys(copyToClipboard);
+        field.sendKeys(selectAll);
+        field.sendKeys(copyToClipboard);
         String result = "";
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         // odd: the Object param of getContents is not currently used
@@ -114,22 +124,11 @@ public class DatePicker_Bootstrap_Page<rearrange> extends PageBase {
     public boolean compareDates(String fieldDate, String convertedInputDate) {
         return fieldDate.contains(convertedInputDate);
     }
-    // -------------------------------///////////////////////////--------------------------- Date Picker One Methods
 
-    public WebElement[] buttonsOne(){
-        WebElement[] buttonsOne = {dateFieldOne, monthButtonOne, prevButtonOne, checkYearOne};
-        return buttonsOne;
+    public WebElement chooseField(int i){
+        return field[i-1];
+
     }
 
-    //--------------//////////////////////////------------------------------ Date Picker 2 Methods
 
-    public WebElement[] buttons2One(){
-        WebElement[] buttonsOne = {dateFieldOne, monthButtonOne, prevButtonOne, checkYearOne};
-        return buttonsOne;
-    }
-
-    public WebElement[] buttons2Two(){
-        WebElement[] buttonsOne = {dateFieldOne, monthButtonOne, prevButtonOne, checkYearOne};
-        return buttonsOne;
-    }
 }
