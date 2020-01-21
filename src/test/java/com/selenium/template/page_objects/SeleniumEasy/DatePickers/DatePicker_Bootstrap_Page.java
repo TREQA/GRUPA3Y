@@ -38,7 +38,7 @@ public class DatePicker_Bootstrap_Page<rearrange> extends PageBase {
     @FindBy(xpath = "//div[@class='datepicker-months']//th[@class='datepicker-switch']")
     private WebElement checkYear;
 
-        private WebElement chooseMonth(String month) {
+    private WebElement chooseMonth(String month) {
         return driver.findElement(By.xpath("//span[contains(text(),'" + month + "')]"));
     }
 
@@ -46,14 +46,17 @@ public class DatePicker_Bootstrap_Page<rearrange> extends PageBase {
         return driver.findElement(By.xpath("//td[contains(text(),'" + day + "')]"));
     }
 
+    @FindBy(xpath = "//body/div[@class='container-fluid text-center']/div[1]")
+    private WebElement close;
+
     //------------------------------------------------Date Picker 2-Start Elements
 
     @FindBy(xpath = "//input[@placeholder='Start date']")
     private WebElement dateField2Start;
 
-      //------------------------------------------------Date Picker 2-End Elements
+    //------------------------------------------------Date Picker 2-End Elements
 
-    @FindBy(xpath = "//DIV[@class='panel-heading'][text()='Date Example :']/..//INPUT[@type='text']")
+    @FindBy(xpath = "//input[@placeholder='End date']")
     private WebElement dateField2End;
 
     private WebElement field[] = {dateFieldOne, dateField2Start, dateField2End};
@@ -73,7 +76,7 @@ public class DatePicker_Bootstrap_Page<rearrange> extends PageBase {
         }
         chooseMonth(date[1]).click();
         chooseDay(date[0]).click();
-    }
+            }
 
     public String getFieldDate(WebElement field) {
         String selectAll = Keys.chord(Keys.CONTROL, "a");
@@ -125,10 +128,14 @@ public class DatePicker_Bootstrap_Page<rearrange> extends PageBase {
         return fieldDate.contains(convertedInputDate);
     }
 
-    public WebElement chooseField(int i){
-        return field[i-1];
+    public WebElement chooseField(int i) {
+        i--;
+        return field[i];
 
     }
 
+    public void closePicker() {
+        close.click();
+    }
 
 }

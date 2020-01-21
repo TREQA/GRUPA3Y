@@ -26,6 +26,7 @@ public class DatePicker_Bootstrap_Test extends ExtentTestListener {
         String fieldDate = DatePicker_Bootstrap_Page.getFieldDate(field);
         String convertedInputDate = DatePicker_Bootstrap_Page.convertInputDate(date);
         boolean check1 = DatePicker_Bootstrap_Page.compareDates(fieldDate, convertedInputDate);
+        DatePicker_Bootstrap_Page.closePicker();
         Assert.assertTrue(check1);
         testPass("Assert message was received: " + (check1));
     }
@@ -46,9 +47,13 @@ public class DatePicker_Bootstrap_Test extends ExtentTestListener {
         String fieldDate = DatePicker_Bootstrap_Page.getFieldDate(fieldStart);
         String convertedInputDate = DatePicker_Bootstrap_Page.convertInputDate(dateStart);
         boolean check1 = DatePicker_Bootstrap_Page.compareDates(fieldDate, convertedInputDate);
+        DatePicker_Bootstrap_Page.closePicker();
+        //-------------------------------------------------------------------------//
+        DatePicker_Bootstrap_Page.dateChooser(dateEnd, fieldEnd);
         fieldDate = DatePicker_Bootstrap_Page.getFieldDate(fieldEnd);
         convertedInputDate = DatePicker_Bootstrap_Page.convertInputDate(dateEnd);
         boolean check2 = DatePicker_Bootstrap_Page.compareDates(fieldDate, convertedInputDate);
+        DatePicker_Bootstrap_Page.closePicker();
         Assert.assertTrue(check1&&check2);
         testPass("Assert message was received: " + (check1 && check2));
     }
