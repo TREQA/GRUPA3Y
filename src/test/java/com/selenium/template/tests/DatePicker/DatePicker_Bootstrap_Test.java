@@ -39,7 +39,7 @@ public class DatePicker_Bootstrap_Test extends ExtentTestListener {
         SeleniumWrapper.openIfLinkExists(driver, TestData.SELENIUM_DATE_DATE_BOOTS);
         driver.manage().window().maximize();
 
-        String[] dateStart = {"17", "Dec", "2017"};
+        String[] dateStart = {"18", "Dec", "2017"};
         String[] dateEnd = {"03", "Jul", "2018"};
         WebElement fieldStart = DatePicker_Bootstrap_Page.chooseField(2);
         WebElement fieldEnd = DatePicker_Bootstrap_Page.chooseField(3);
