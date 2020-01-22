@@ -42,8 +42,8 @@ public class DatePicker_Bootstrap_Page<rearrange> extends PageBase {
         return driver.findElement(By.xpath("//span[contains(text(),'" + month + "')]"));
     }
 
-    private WebElement chooseDay(String day) {
-        return driver.findElement(By.xpath("//td[contains(text(),'" + day + "')]"));
+    private WebElement chooseDay(int day) {
+        return driver.findElement(By.xpath("//td[text()='" + day + "']"));
     }
 
     @FindBy(xpath = "//body/div[@class='container-fluid text-center']/div[1]")
@@ -75,8 +75,9 @@ public class DatePicker_Bootstrap_Page<rearrange> extends PageBase {
 
         }
         chooseMonth(date[1]).click();
-        chooseDay(date[0]).click();
-            }
+        int intDate = Integer.parseInt(date[0]);
+        chooseDay(intDate).click();
+    }
 
     public String getFieldDate(WebElement field) {
         String selectAll = Keys.chord(Keys.CONTROL, "a");
