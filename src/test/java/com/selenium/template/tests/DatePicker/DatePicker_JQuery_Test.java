@@ -10,5 +10,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class DatePicker_JQuery_Test extends ExtentTestListener {
+@Test(groups = "Test", description = "Date Pickers > Jquery")
+    public void Test_01_JQueryDatePickers() throws Exception {
 
+        WebDriver driver = getDriver();
+        DatePicker_JQuery_Page DatePicker_JQuery_Page = new DatePicker_JQuery_Page(driver);
+
+        SeleniumWrapper.openIfLinkExists(driver, TestData.SELENIUM_DATE_DATE_JQUERY);
+        driver.manage().window().maximize();
 }
