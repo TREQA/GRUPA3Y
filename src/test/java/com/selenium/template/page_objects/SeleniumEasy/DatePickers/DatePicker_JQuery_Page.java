@@ -39,5 +39,90 @@ private WebElement monthChooser;
     private WebElement dayChooser (int i){
     return driver.findElement(By.xpath("//a[contains(text(),'"+i+"')]"));}
 
+    @FindBy(xpath = "//div[@class='container-fluid text-center']//div[@class='row']")
+    private WebElement close;
 
+    private WebElement field[] = {dateFieldTo, dateFieldFrom};
+
+    //==================================================================================== Methods
 }
+
+    public void dateChooser(String[] date, WebElement field) {
+        field.click();
+        monthChooser.click();
+        WebDriverWait wait = new WebDriverWait(driver, 4);
+        for (int i = 0; i < 100; i++) {
+            if (!yearChooser.getText().contains(date[2])) {
+                wait.until(ExpectedConditions.elementToBeClickable(prevButton));
+                prevButton.click();
+            } else break;
+
+        }
+        monthChooser(date[1]).click();
+        int intDate = Integer.parseInt(date[0]);
+        dayChooser(intDate).click();
+    }
+
+    public String getFieldDate(WebElement field) {
+        String selectAll = Keys.chord(Keys.CONTROL, "a");
+        String copyToClipboard = Keys.chord(Keys.CONTROL, "c");
+        field.sendKeys(selectAll);
+        field.sendKeys(copyToClipboard);
+        String result = "";
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        // odd: the Object param of getContents is not currently used
+        Transferable contents = clipboard.getContents(null);
+        boolean hasTransferableText = (contents != null)
+                && contents.isDataFlavorSupported(DataFlavor.stringFlavor);
+        if (hasTransferableText) {
+            try {
+                result = (String) contents
+                        .getTransferData(DataFlavor.stringFlavor);
+            } catch (UnsupportedFlavorException | IOException ex) {
+                System.out.println(ex);
+                ex.printStackTrace();
+            }
+        }
+        return result;
+
+    }
+
+    public String convertInputDate(String[] date) {
+        String[] sMonths = new String[12];
+        int intMonth = 0;
+        for (int i = 0; i < sMonths.length; i++) {
+            sMonths[i] = Month.values()[i].name().toLowerCase();
+        }
+        for (int i = 0; i < sMonths.length; i++) {
+            try {
+                if (sMonths[i].contains(date[1].toLowerCase())) {
+                    intMonth = i + 1;
+                }
+            } catch (Exception e) {
+                System.out.println("Month wasn't encountered!");
+            }
+        }
+        String rearrange;
+        if (intMonth < 10) {
+            rearrange = date[0] + "/0" + intMonth + "/" + date[2];
+        } else rearrange = date[0] + "/" + intMonth + "/" + date[2];
+        return rearrange;
+    }
+
+    public boolean compareDates(String fieldDate, String convertedInputDate) {
+        return fieldDate.contains(convertedInputDate);
+    }
+
+    public WebElement chooseField(int i) {
+        i--;
+        return field[i];
+
+    }
+
+    public void closePicker() {
+        close.click();
+    }
+
+    }
+
+
