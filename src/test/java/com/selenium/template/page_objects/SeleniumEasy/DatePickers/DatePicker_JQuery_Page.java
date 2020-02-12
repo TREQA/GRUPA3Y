@@ -60,7 +60,13 @@ public class DatePicker_JQuery_Page<rearrange> extends PageBase {
             } else break;
 
         }
-        monthChooser.click();
+        for (int i = 0; i < 100; i++) {
+            if (!monthChooser.getText().contains(date[1])) {
+                wait.until(ExpectedConditions.elementToBeClickable(prevButton));
+                prevButton.click();
+            } else break;
+
+        }
         int intDate = Integer.parseInt(date[0]);
         dayChooser(intDate).click();
     }
