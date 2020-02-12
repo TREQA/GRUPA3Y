@@ -18,4 +18,14 @@ public class DatePicker_JQuery_Test extends ExtentTestListener {
 
         SeleniumWrapper.openIfLinkExists(driver, TestData.SELENIUM_DATE_DATE_JQUERY);
         driver.manage().window().maximize();
-}
+
+    String[] dateStart = {"18", "Dec", "2018"};
+    String[] dateEnd = {"03", "Jul", "2019"};
+    WebElement fieldStart = DatePicker_JQuery_Page.chooseField(1);
+    WebElement fieldEnd = DatePicker_JQuery_Page.chooseField(2);
+    DatePicker_JQuery_Page.dateChooser(dateStart, fieldStart);
+    String fieldDate = DatePicker_JQuery_Page.getFieldDate(fieldStart);
+    String convertedInputDate = DatePicker_JQuery_Page.convertInputDate(dateStart);
+    boolean check1 = DatePicker_JQuery_Page.compareDates(fieldDate, convertedInputDate);
+    DatePicker_JQuery_Page.closePicker();
+}}

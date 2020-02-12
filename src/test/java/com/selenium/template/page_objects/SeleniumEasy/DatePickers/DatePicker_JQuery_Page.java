@@ -1,4 +1,5 @@
 package com.selenium.template.page_objects.SeleniumEasy.DatePickers;
+
 import com.selenium.template.page_objects.PageBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -7,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.awt.Toolkit;
 import java.awt.datatransfer.*;
 import java.io.IOException;
@@ -27,29 +29,29 @@ public class DatePicker_JQuery_Page<rearrange> extends PageBase {
     @FindBy(xpath = "//input[@id='from']")
     private WebElement dateFieldFrom;
 
-    @FindBy (xpath="//span[@class='ui-icon ui-icon-circle-triangle-w']")
-private WebElement prevButton;
+    @FindBy(xpath = "//span[@class='ui-icon ui-icon-circle-triangle-w']")
+    private WebElement prevButton;
 
-    @FindBy (xpath="//span[@class='ui-datepicker-year']")
+    @FindBy(xpath = "//span[@class='ui-datepicker-year']")
     private WebElement yearChooser;
 
-    @FindBy(xpath="//select[@class='ui-datepicker-month']")
-private WebElement monthChooser;
+    @FindBy(xpath = "//select[@class='ui-datepicker-month']")
+    private WebElement monthChooser;
 
-    private WebElement dayChooser (int i){
-    return driver.findElement(By.xpath("//a[contains(text(),'"+i+"')]"));}
+    private WebElement dayChooser(int i) {
+        return driver.findElement(By.xpath("//a[contains(text(),'" + i + "')]"));
+    }
 
     @FindBy(xpath = "//div[@class='container-fluid text-center']//div[@class='row']")
     private WebElement close;
 
-    private WebElement field[] = {dateFieldTo, dateFieldFrom};
+    private WebElement field[] = {dateFieldFrom, dateFieldTo};
 
     //==================================================================================== Methods
-}
+
 
     public void dateChooser(String[] date, WebElement field) {
         field.click();
-        monthChooser.click();
         WebDriverWait wait = new WebDriverWait(driver, 4);
         for (int i = 0; i < 100; i++) {
             if (!yearChooser.getText().contains(date[2])) {
@@ -58,7 +60,7 @@ private WebElement monthChooser;
             } else break;
 
         }
-        monthChooser(date[1]).click();
+        monthChooser.click();
         int intDate = Integer.parseInt(date[0]);
         dayChooser(intDate).click();
     }
@@ -104,8 +106,8 @@ private WebElement monthChooser;
         }
         String rearrange;
         if (intMonth < 10) {
-            rearrange = date[0] + "/0" + intMonth + "/" + date[2];
-        } else rearrange = date[0] + "/" + intMonth + "/" + date[2];
+            rearrange = "0" + intMonth + "/" + date[0] + "/" + date[2];
+        } else rearrange = intMonth + "/" + date[0] + "/" + date[2];
         return rearrange;
     }
 
@@ -122,7 +124,8 @@ private WebElement monthChooser;
     public void closePicker() {
         close.click();
     }
+}
 
-    }
+
 
 
