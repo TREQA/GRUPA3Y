@@ -8,14 +8,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.awt.Toolkit;
 import java.awt.datatransfer.*;
 import java.io.IOException;
 import java.lang.*;
 import java.time.Month;
 
-public class DatePicker_JQuery_Page<rearrange> extends PageBase {
+public class DatePicker_JQuery_Page extends PageBase {
 
     public DatePicker_JQuery_Page(WebDriver driver) {
         super(driver);
@@ -37,6 +36,9 @@ public class DatePicker_JQuery_Page<rearrange> extends PageBase {
 
     @FindBy(xpath = "//select[@class='ui-datepicker-month']")
     private WebElement monthChooser;
+
+    private WebElement monthChecker(String month) {
+        return driver.findElement(By.xpath("//option[contains(text(),'"+month+"')]"));}
 
     private WebElement dayChooser(int i) {
         return driver.findElement(By.xpath("//a[contains(text(),'" + i + "')]"));
@@ -60,13 +62,8 @@ public class DatePicker_JQuery_Page<rearrange> extends PageBase {
             } else break;
 
         }
-        for (int i = 0; i < 100; i++) {
-            if (!monthChooser.getText().contains(date[1])) {
-                wait.until(ExpectedConditions.elementToBeClickable(prevButton));
-                prevButton.click();
-            } else break;
-
-        }
+        monthChooser.click();
+        monthChecker(date[1]).click();
         int intDate = Integer.parseInt(date[0]);
         dayChooser(intDate).click();
     }
@@ -129,6 +126,10 @@ public class DatePicker_JQuery_Page<rearrange> extends PageBase {
 
     public void closePicker() {
         close.click();
+    }
+
+    public void sendKeys(String input, WebElement field){
+        field.sendKeys(input);
     }
 }
 
