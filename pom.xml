@@ -31,7 +31,7 @@
         <rest-assured.version>2.9.0</rest-assured.version>
         <extent.version>3.1.5</extent.version>
         <gson.version>2.8.5</gson.version>
-        <commons.io.version>2.6</commons.io.version>
+        <commons.io.version>2.7</commons.io.version>
         <!--Plugin Versions-->
         <driver-binary-downloader-maven-plugin.version>1.0.17</driver-binary-downloader-maven-plugin.version>
         <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
